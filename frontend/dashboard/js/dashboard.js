@@ -2,6 +2,11 @@ let usersChart;
 let postsChart;
 
 
+function t(key) {
+  const lang = localStorage.getItem("lang") || "vietnamese";
+  return translations?.[lang]?.[key] || key;
+}
+
 async function initCharts() {
   await getNumUser();
   await getArticleNum();
@@ -78,20 +83,7 @@ function countByMonth(data, dateKey) {
 
   return monthlyCount; // Trả về đủ 12 tháng
 }
-const labels = [
-  "Tháng 1",
-  "Tháng 2",
-  "Tháng 3",
-  "Tháng 4",
-  "Tháng 5",
-  "Tháng 6",
-  "Tháng 7",
-  "Tháng 8",
-  "Tháng 9",
-  "Tháng 10",
-  "Tháng 11",
-  "Tháng 12",
-];
+const labels = Array.from({ length: 12 }, (_, i) => t(`month-${i + 1}`));
 function initUsersChart(users) {
   const counts = countByMonth(users, "createdat");
 
@@ -103,7 +95,7 @@ function initUsersChart(users) {
         labels,
         datasets: [
           {
-            label: "Người dùng mới",
+            label: t("chart-users-label"),
             data: counts,
             backgroundColor: "rgba(75, 192, 192, 0.6)",
             borderColor: "rgba(75, 192, 192, 1)",
@@ -115,7 +107,7 @@ function initUsersChart(users) {
         responsive: true,
         plugins: {
           legend: { position: "top" },
-          title: { display: true, text: "Người dùng mới theo tháng" },
+          title: { display: true, text: t("chart-users-title") },
         },
         scales: {
           y: {
@@ -146,7 +138,7 @@ function initPostsChart(posts) {
         labels,
         datasets: [
           {
-            label: "Bài viết",
+            label: t("chart-posts-label"),
             data: counts,
             backgroundColor: "rgba(67, 97, 238, 0.2)",
             borderColor: "rgba(67, 97, 238, 1)",
@@ -160,7 +152,7 @@ function initPostsChart(posts) {
         responsive: true,
         plugins: {
           legend: { position: "top" },
-          title: { display: true, text: "Bài viết theo tháng" },
+          title: { display: true, text: t("chart-posts-title") },
         },
         scales: {
           y: {

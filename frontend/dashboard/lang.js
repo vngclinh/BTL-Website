@@ -152,7 +152,23 @@ const translations = {
       "noti-unapprove-msg": "Bài viết {{title}} đang được duyệt lại",
 
       "noti-delete-title": "Bài viết đã bị xoá",
-      "noti-delete-msg": "Bài viết {{title}} đã bị xoá"
+      "noti-delete-msg": "Bài viết {{title}} đã bị xoá",
+      "chart-users-title": "Người dùng mới theo tháng",
+      "chart-users-label": "Người dùng mới",
+      "chart-posts-title": "Bài viết theo tháng",
+      "chart-posts-label": "Bài viết",
+      "month-1": "Tháng 1",
+      "month-2": "Tháng 2",
+      "month-3": "Tháng 3",
+      "month-4": "Tháng 4",
+      "month-5": "Tháng 5",
+      "month-6": "Tháng 6",
+      "month-7": "Tháng 7",
+      "month-8": "Tháng 8",
+      "month-9": "Tháng 9",
+      "month-10": "Tháng 10",
+      "month-11": "Tháng 11",
+      "month-12": "Tháng 12"
   },
   english: {
     "dashboard": "Dashboard",
@@ -306,7 +322,23 @@ const translations = {
     "noti-unapprove-msg": "Your post {{title}} is being re-evaluated.",
 
     "noti-delete-title": "Your post has been deleted",
-    "noti-delete-msg": "Your post {{title}} has been removed."
+    "noti-delete-msg": "Your post {{title}} has been removed.",
+    "chart-users-title": "New Users by Month",
+    "chart-users-label": "New Users",
+    "chart-posts-title": "Posts by Month",
+    "chart-posts-label": "Posts",
+    "month-1": "January",
+    "month-2": "February",
+    "month-3": "March",
+    "month-4": "April",
+    "month-5": "May",
+    "month-6": "June",
+    "month-7": "July",
+    "month-8": "August",
+    "month-9": "September",
+    "month-10": "October",
+    "month-11": "November",
+    "month-12": "December"
   }
 };
 

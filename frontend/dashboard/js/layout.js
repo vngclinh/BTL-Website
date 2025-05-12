@@ -283,6 +283,7 @@
     
       // Gọi lại hàm dịch
       updateText(newLang);
+      updateChartLabels();
     
       // (Tùy chọn) đổi icon theo ngôn ngữ
       const icon = document.getElementById("languageToggle");
@@ -293,6 +294,25 @@
       icon.alt = newLang === "vietnamese" ? "Vietnam" : "English";
     });
     
+    function updateChartLabels() {
+      const newLabels = Array.from({ length: 12 }, (_, i) => t(`month-${i + 1}`));
+
+      if (usersChart) {
+        usersChart.data.labels = newLabels;
+        usersChart.data.datasets[0].label = t("chart-users-label");
+        usersChart.options.plugins.title.text = t("chart-users-title");
+        usersChart.update();
+      }
+
+      if (postsChart) {
+        postsChart.data.labels = newLabels;
+        postsChart.data.datasets[0].label = t("chart-posts-label");
+        postsChart.options.plugins.title.text = t("chart-posts-title");
+        postsChart.update();
+      }
+    }
+
+
 
     document.getElementById("fontSizeSelect").addEventListener("change", (e) => {
         const size = e.target.value;
