@@ -251,7 +251,7 @@ exports.resetPassword = async (req, res, next) => {
     const user = await User.findByResetToken(token);
 
     if (!user) {
-      return next(new ErrorHandler(400, "Token không hợp lệ"));
+      return next(new ErrorHandler(400, "Link đã hết hạn, vui lòng thử lại"));
     }
 
     if (new Date(user.resetpasswordexpiry) < new Date()) {

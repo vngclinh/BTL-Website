@@ -126,9 +126,9 @@ function renderPostTable() {
           <td>${post.authorname}</td>
           <td>${date}</td>
           <td>${post.views}</td>
-          <td><span class="status-badge ${post.status}" data-i18n="${post.status}">${
-        statusMap[post.status]
-      }</span></td>
+          <td><span class="status-badge ${post.status}" data-i18n="${
+        post.status
+      }">${statusMap[post.status]}</span></td>
           <td>${actions}</td>
         </tr>
       `;
@@ -352,44 +352,44 @@ document.querySelector("#posts tbody").addEventListener("click", async (e) => {
 
     try {
       if (btn.classList.contains("btn-approve-post")) {
-        showConfirmModal(t("confirm-approve-post"), async () => {
+        showConfirmModal("confirm-approve-post", async () => {
           await updatePostStatus(postId, "published");
           sendNotification({
-            title: t("noti-approve-title"),
-            message: t("noti-approve-msg", { title: postTitle }),
+            title: "noti-approve-title",
+            message: ("noti-approve-msg", { title: postTitle }),
             toUserId: authorid,
           });
           showToast("Đã duyệt bài viết thành công", "success");
           loadPosts();
         });
       } else if (btn.classList.contains("btn-reject-post")) {
-        showConfirmModal(t("confirm-reject-post"), async () => {
+        showConfirmModal("confirm-reject-post", async () => {
           await updatePostStatus(postId, "rejected");
           sendNotification({
-            title: t("noti-reject-title"),
-            message: t("noti-reject-msg", { title: postTitle }),
+            title: "noti-reject-title",
+            message: ("noti-reject-msg", { title: postTitle }),
             toUserId: authorid,
           });
           showToast("Đã từ chối bài viết", "success");
           loadPosts();
         });
       } else if (btn.classList.contains("btn-unapprove-post")) {
-        showConfirmModal(t("confirm-unapprove-post"), async () => {
+        showConfirmModal("confirm-unapprove-post", async () => {
           await updatePostStatus(postId, "pending");
           sendNotification({
-            title: t("noti-unapprove-title"),
-            message: t("noti-unapprove-msg", { title: postTitle }),
+            title: "noti-unapprove-title",
+            message: ("noti-unapprove-msg", { title: postTitle }),
             toUserId: authorid,
           });
           showToast("Đã gỡ duyệt bài viết", "success");
           loadPosts();
         });
       } else if (btn.classList.contains("btn-delete-post")) {
-        showConfirmModal(t("confirm-delete-post"), async () => {
+        showConfirmModal("confirm-delete-post", async () => {
           await deletePost(postId);
           sendNotification({
-            title: t("noti-delete-title"),
-            message: t("noti-delete-msg", { title: postTitle }),
+            title: "noti-delete-title",
+            message: ("noti-delete-msg", { title: postTitle }),
             toUserId: authorid,
           });
           showToast("Đã xóa bài viết", "success");

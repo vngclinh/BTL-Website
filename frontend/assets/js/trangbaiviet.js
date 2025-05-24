@@ -118,7 +118,7 @@ async function addComment(body, parentId = null, replyTo = undefined) {
   }
   if (!token) {
     if (errorDiv) {
-      errorDiv.textContent = "Bạn cần đăng nhập";
+      errorDiv.textContent = "Bạn cần đăng nhập để đăng bình luận";
       errorDiv.classList.add("show");
     } else {
       alert("Bạn cần đăng nhập");
